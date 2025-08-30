@@ -1,89 +1,186 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<!doctype html>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.2.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.2.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.2.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <title>Easy Tech — Tools for a simpler, private life</title>
+  <meta name="description"
+    content="Easy Tech builds smart, privacy-first tools designed to make everyday life easier. Secure, user-friendly, and built with care." />
+  <meta name="keywords"
+    content="Easy Tech, mobile apps, productivity tools, privacy, security, offline apps, Android" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Easy Tech — Tools for a simpler, private life" />
+  <meta property="og:description"
+    content="Easy Tech builds smart, privacy-first tools designed to make everyday life easier." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <meta property="og:image" content="https://your-domain.example/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./favicon/site.webmanifest" />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Easy Tech",
+    "url":"https://your-domain.example/",
+    "logo":"https://your-domain.example/logo.png",
+    "sameAs": []
+  }
+  </script>
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <img src="./icon.png" alt="Easy Tech Logo" />
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#apps">Tools</a>
+        <a href="#values">Values</a>
+        <!-- <a href="#contact">Contact</a> -->
+      </nav>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <span class="eyebrow">Smart tools • Privacy-first</span>
+          <h1>Technology that simplifies life — without compromising your privacy.</h1>
+          <p class="lead">Easy Tech creates apps and tools that make daily tasks easier, faster, and safer. Built with
+            simplicity, performance, and privacy at the core.</p>
+          <div class="cta">
+            <a class="btn primary" href="#apps">Explore our tools</a>
+            <a class="btn ghost" href="https://play.google.com/store/apps/dev?id=5065874752111128143" target="_blank"
+              rel="noopener">Google Play Developer Page</a>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="pill" title="Core principles">
+              <span class="check" aria-hidden="true"></span>
+              <span>User-first design</span>
+            </div>
+            <h3>What drives us</h3>
+            <ul>
+              <li>🔒 Privacy by default</li>
+              <li>⚡ Tools that save time & energy</li>
+              <li>📶 Works great online & offline</li>
+              <li>🎯 Transparent design, no tricks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <!-- Tools -->
+    <section id="apps">
+      <div class="container">
+        <h2 class="section-title">Featured Tool</h2>
+        <p class="muted">A selection of products crafted by Easy Tech.</p>
+        <div class="grid" style="margin-top:14px">
+          <!-- Safe Password Manager Card -->
+          <article class="card" aria-labelledby="spm-title">
+            <div class="pill">New • Security</div>
+            <h3 id="spm-title">Safe Password Manager</h3>
+            <p class="muted">A secure, offline password vault with AES-256 encryption. Free plan stores up to 10
+              passwords with ads; upgrade for unlimited and ad-free.</p>
+            <ul>
+              <li>🔐 AES-256 encryption</li>
+              <li>🧭 Fast search & categories</li>
+              <li>🧩 QR credential sharing (Premium)</li>
+              <li>👆 Biometric login & auto-logout (Premium)</li>
+              <li>📥 Import/Export (CSV/Excel, encrypted backups) (Premium)</li>
+            </ul>
+            <div class="cta">
+              <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.spass" target="_blank"
+                rel="noopener">View on
+                Google Play</a>
+              <a class="btn ghost" href="./spass-privacy-policy.html" target="_blank" rel="noopener">
+                Privacy Policy</a>
+            </div>
+          </article>
+
+          <!-- Add more tool cards here as you publish -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Values / About -->
+    <section id="values">
+      <div class="container">
+        <h2 class="section-title">Our values</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Privacy above all</h3>
+            <p class="muted">We never collect unnecessary data. Your information stays yours.</p>
+          </div>
+          <div class="card">
+            <h3>Simplicity & speed</h3>
+            <p class="muted">Our tools are lightweight, intuitive, and optimized for performance.</p>
+          </div>
+          <div class="card">
+            <h3>User respect</h3>
+            <p class="muted">Clear communication, no dark patterns, and honest design choices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <!-- <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact & Support</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Support</h3>
+            <p class="muted">Questions, feedback, or bug reports? We’re here to help.</p>
+            <p>
+              <a class="btn ghost" href="mailto:support@your-domain.example">support@your-domain.example</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Company</h3>
+            <p class="muted">Easy Tech, Lebanon</p>
+          </div>
+
+        </div>
+      </div>
+    </section> -->
+  </main>
+
+  <footer>
+    <div class="container"
+      style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Easy Tech. All rights reserved.</div>
+      <div style="display:flex; gap:16px;">
+        <!-- <a href="/privacy-policy.html">Privacy</a> -->
+        <!-- <a href="/support.html">Support</a> -->
+        <a href="#">Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
 </html>
