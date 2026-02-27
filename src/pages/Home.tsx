@@ -2,12 +2,7 @@ import { Link } from "react-router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const GOOGLE_PLAY_DEV =
-  "https://play.google.com/store/apps/dev?id=5065874752111128143";
-const SPASS_PLAY = "https://play.google.com/store/apps/details?id=com.spass";
-const FLYING_BALL_PLAY =
-  "https://play.google.com/store/apps/details?id=com.izitech.izigames";
+import { GOOGLE_PLAY_DEV, TOOLS } from "@/constants/tools";
 
 export function Home() {
   return (
@@ -84,85 +79,55 @@ export function Home() {
             </p>
           </div>
           <div className="mx-auto mt-12 grid gap-6 sm:grid-cols-2 lg:max-w-4xl">
-            {/* Safe Password Manager */}
-            <Card className="group flex flex-col rounded-lg border border-border p-6 shadow-sm transition-colors hover:bg-accent/50">
-              <Badge className="bg-[#3146E8] text-white w-fit text-xs font-medium">
-                New · Security
-              </Badge>
-              <h3
-                id="spm-title"
-                className="text-lg font-semibold text-card-foreground"
+            {TOOLS.map((tool) => (
+              <Card
+                key={tool.id}
+                className="group flex flex-col rounded-lg border border-border p-6 shadow-sm transition-colors hover:bg-accent/50"
               >
-                Safe Password Manager
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                A secure, offline password vault with AES-256 encryption. Free
-                plan stores up to 10 passwords with ads; upgrade for unlimited
-                and ad-free.
-              </p>
-              <ul className="text-sm space-y-2 text-muted-foreground">
-                <li>AES-256 encryption</li>
-                <li>Fast search & categories</li>
-                <li>QR credential sharing (Premium)</li>
-                <li>Biometric login & auto-logout (Premium)</li>
-                <li>Import/Export (Premium)</li>
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Button asChild>
-                  <a
-                    href={SPASS_PLAY}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View on Google Play
-                  </a>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link to="/spass-privacy-policy">Privacy Policy</Link>
-                </Button>
-              </div>
-            </Card>
-
-            {/* Flying Ball */}
-            <Card className="group flex flex-col rounded-lg border border-border p-6 shadow-sm transition-colors hover:bg-accent/50">
-              <Badge
-                variant="default"
-                className="bg-[#6AC66F] text-white w-fit text-xs font-medium"
-              >
-                Arcade · Skill Game
-              </Badge>
-              <h3
-                id="fb-title"
-                className="text-lg font-semibold text-card-foreground"
-              >
-                Flying Ball
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                A fast-paced arcade challenge inspired by classic tap-to-fly
-                mechanics. Master precise timing, unlock skins & environments,
-                and take on progressively harder moving pipes.
-              </p>
-              <ul className="text-sm space-y-2 text-muted-foreground">
-                <li>Skill-based gameplay with progressive difficulty</li>
-                <li>Unlockable skins & dynamic environments</li>
-                <li>Achievements & daily challenges</li>
-                <li>Optional lifetime “Remove Ads” upgrade</li>
-              </ul>
-              <div className="flex flex-wrap gap-3 mt-auto">
-                <Button asChild>
-                  <a
-                    href={FLYING_BALL_PLAY}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View on Google Play
-                  </a>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link to="/privacy-policy/flying-ball">Privacy Policy</Link>
-                </Button>
-              </div>
-            </Card>
+                <div className="flex items-center gap-4">
+                  <img
+                    src={tool.logo}
+                    alt=""
+                    className="h-14 w-14 shrink-0 rounded-xl object-contain"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <Badge
+                      className={`w-fit text-xs font-medium ${tool.badgeClassName}`}
+                    >
+                      {tool.badgeLabel}
+                    </Badge>
+                    <h3
+                      id={`${tool.id}-title`}
+                      className="mt-1 text-lg font-semibold text-card-foreground"
+                    >
+                      {tool.title}
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {tool.description}
+                </p>
+                <ul className="mt-4 text-sm space-y-2 text-muted-foreground">
+                  {tool.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Button asChild>
+                    <a
+                      href={tool.playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on Google Play
+                    </a>
+                  </Button>
+                  <Button asChild variant="outline">
+                    <Link to={tool.privacyPath}>Privacy Policy</Link>
+                  </Button>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

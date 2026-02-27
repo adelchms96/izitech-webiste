@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
 import { Layout } from "@/components/Layout";
 import { Home } from "@/pages/Home";
 import { FlyingBallPrivacyPolicy } from "@/pages/FlyingBallPrivacyPolicy";
@@ -17,12 +17,13 @@ const router = createBrowserRouter([
             path: "flying-ball",
             element: <FlyingBallPrivacyPolicy />,
           },
+          {
+            path: "spass",
+            element: <SpassPrivacyPolicy />,
+          },
         ],
       },
-      {
-        path: "spass-privacy-policy",
-        element: <SpassPrivacyPolicy />,
-      },
+      { path: "*", element: <Navigate to="/" /> },
     ],
   },
 ]);

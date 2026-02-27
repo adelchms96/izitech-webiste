@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 function Code({ children }: { children: React.ReactNode }) {
   return (
-    <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">
+    <code className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
       {children}
     </code>
   );
@@ -153,9 +153,9 @@ export function SpassPrivacyPolicy() {
             4. Ads Usage
           </h2>
           <p className="mt-2 text-muted-foreground">
-            Our app uses Google AdMob to serve ads. These may be personalized
-            or non-personalized depending on user preferences and consent. You
-            can opt out of personalized ads through your device settings.
+            Our app uses Google AdMob to serve ads. These may be personalized or
+            non-personalized depending on user preferences and consent. You can
+            opt out of personalized ads through your device settings.
           </p>
         </section>
 
@@ -201,9 +201,9 @@ export function SpassPrivacyPolicy() {
       <footer className="mt-12 border-t border-border pt-6">
         <p className="text-sm text-muted-foreground">
           <strong>Plain-language summary:</strong> Spass stores all passwords
-          securely offline on your device. Ads are shown via Google AdMob,
-          which may collect limited data as described. We never store your
-          passwords or personal information on our servers.
+          securely offline on your device. Ads are shown via Google AdMob, which
+          may collect limited data as described. We never store your passwords
+          or personal information on our servers.
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
           Last updated: August 31, 2025
