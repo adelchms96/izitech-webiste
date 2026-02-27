@@ -159,7 +159,7 @@ export function Home() {
                   </a>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link to="/flying-ball-privacy-policy">Privacy Policy</Link>
+                  <Link to="/privacy-policy/flying-ball">Privacy Policy</Link>
                 </Button>
               </div>
             </Card>

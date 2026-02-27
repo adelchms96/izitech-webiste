@@ -11,8 +11,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
-        path: "flying-ball-privacy-policy",
-        element: <FlyingBallPrivacyPolicy />,
+        path: "privacy-policy",
+        children: [
+          {
+            path: "flying-ball",
+            element: <FlyingBallPrivacyPolicy />,
+          },
+        ],
       },
       {
         path: "spass-privacy-policy",
